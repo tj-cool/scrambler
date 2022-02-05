@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Scramble</title>
+        <style>
+            p {
+                display: inline-block;
+                font-size: 25px;
+            }
+            body {
+                background-color: #21d34d;
+            }
+           .class{
+               position: absolute;
+               left: 500px;
+               top: 500px;
+           }
+           canvas {
+               position: absolute;
+               left: 700px;
+               top: 200px;
+               width: 600px;
+               height: 1080px;
+           }
+        </style>
+
+    </head>
+    <body>
+        <canvas id="textcanvas"></canvas>
+        <element class="class">
+            <p id="text">unscramble the word :</p> <input id="input" type="text"></input>
+            <button id="confirm">confirm</button>
+        </element>
+        <script>
+            var length;
+            function random(min,max) {
+                return Math.floor(Math.random() * (max - min) + min);
+            }
+            function scramble(word) {
+                var charToAdd;
+                length = realword.length;
+               for(var i = 0; i < length;) {
+                     charToAdd = word.charAt(random(0,length));
+                    if(scrambled.includes(charToAdd) || scrambled == realword) {
+                        i = length;
+                        scrambled = [];
+                        scramble(realword);
+                    } else {
+                        scrambled[i] = charToAdd;
+                        i = i + 1;
+                    }
+                    
+               }
+            }
+            let wordlist = ["break","clean","clash","watch","punch","water","pears","flashed","grumpy","weird","lighten","fruit","drink","group","stink","world","about","gaming","popsicle","trucks","monkey",
+            "jumble","boat","bugs","bounce"];
+            let scrambled = [];
+            var realword = new String(wordlist[random(0,24)]);
+            scramble(realword);
+            var scrambledText = "";
+            for(var j = 0; j < length;) {
+                scrambledText += scrambled[j]; 
+                j=j+1;
+            }
+            
+            document.getElementById("text").innerHTML = "unscramble the word: " + scrambledText;
+            document.getElementById("confirm").addEventListener('click',function() {
+                var answer = document.getElementById("input").value;
+                    if(answer == realword) {
+                    alert("correct!");
+                        var song = new Audio("music.mp3");
+                        song.play();
+                        song.onended = function() {
+                            document.location.reload(true);
+                        };
+                        } else {
+                    alert("yes!");
+                    alert("just kidding!");
+                    document.location.reload(true);
+                }
+                
+            });
+            var c = document.getElementById("textcanvas");
+            var cc = c.getContext('2d');
+            cc.beginPath();
+            cc.font = 10 + 'px ' + "Sans";
+            cc.fillStyle = "#FF2001";
+            cc.fillText("S C R A M B L E R",10,10);
+        </script>
+    </body>
+</html>
