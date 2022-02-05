@@ -82,10 +82,11 @@
             function confirm() {
                 var answer = document.getElementById("input").value;
                     if(answer == realword) {
-                    alert("correct!");
+                    
                         var song = new Audio("music.mp3");
                         song.play();
                         song.onended = function() {
+                            alert("correct!");
                             document.location.reload(true);
                         };
                         } else {
