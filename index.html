@@ -2,6 +2,8 @@
 <html>
     <head>
         <title>Scramble</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <style>
             p {
                 display: inline-block;
@@ -66,6 +68,18 @@
             
             document.getElementById("text").innerHTML = "unscramble the word: " + scrambledText;
             document.getElementById("confirm").addEventListener('click',function() {
+               confirm();
+            });
+            document.addEventListener('keydown',function(e) {
+                var key = e.which || e.keyCode;
+                switch(key) {
+                    case 13: 
+                    confirm();
+                    break;
+                }
+            });
+
+            function confirm() {
                 var answer = document.getElementById("input").value;
                     if(answer == realword) {
                     alert("correct!");
@@ -79,12 +93,11 @@
                     alert("just kidding!");
                     document.location.reload(true);
                 }
-                
-            });
+            }
             var c = document.getElementById("textcanvas");
             var cc = c.getContext('2d');
             cc.beginPath();
-            cc.font = 10 + 'px ' + "Sans";
+            cc.font = 10 + 'px ' + "Verdana";
             cc.fillStyle = "#FF2001";
             cc.fillText("S C R A M B L E R",10,10);
         </script>
