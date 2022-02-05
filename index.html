@@ -83,7 +83,7 @@
                 var answer = document.getElementById("input").value;
                     if(answer == realword) {
                     
-                        var song = new Audio("music.mp3");
+                        var song = new Audio("correct.mp3");
                         song.play();
                         song.onended = function() {
                             alert("correct!");
@@ -91,8 +91,13 @@
                         };
                         } else {
                     alert("yes!");
+                    var fail = new Audio("incorrect.mp3");
+                    fail.play();
                     alert("just kidding!");
+                    fail.onended = function() {     
                     document.location.reload(true);
+                    }
+                    
                 }
             }
             var c = document.getElementById("textcanvas");
