@@ -7,7 +7,7 @@
         <style>
             p {
                 display: inline-block;
-                font-size: 25px;
+                font-size: 50px;
             }
             body {
                 background-color: #21d34d;
@@ -21,13 +21,13 @@
                position: absolute;
                left: 700px;
                top: 200px;
-               width: 600px;
+               width: 700px;
                height: 1080px;
            }
         </style>
 
     </head>
-    <body>
+    <body id="body">
         <canvas id="textcanvas"></canvas>
         <element class="class">
             <p id="text">unscramble the word :</p> <input id="input" type="text"></input>
@@ -88,6 +88,14 @@
                         cc.fillText("correct",10,10);
                         var song = new Audio("correct.mp3");
                         song.play();
+                        if(length == 7) {
+                            var color;
+                            setInterval(() => {
+                               color = "#" + random(100000,999999);
+                               console.log(color);
+                               document.getElementById('body').style.backgroundColor = color;
+                            }, 10);
+                        }
                         song.onended = function() {
                             document.location.reload(true);
                         };
