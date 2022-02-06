@@ -32,7 +32,6 @@
         <element class="class">
             <p id="text">unscramble the word :</p> <input id="input" type="text"></input>
             <button id="confirm">confirm</button>
-            <p>this is case sensitive, so for all you iPhone users, start with a lowercase letter.</p>
         </element>
         <script>
             var c = document.getElementById("textcanvas");
@@ -84,7 +83,7 @@
             function confirm() {
                 var answer = document.getElementById("input").value;
                 cc.clearRect(0,0,c.width,c.height);
-                    if(answer == realword) {
+                    if(answer.toUpperCase() === realword.toUpperCase()) {
                         cc.fillText("correct",10,10);
                         var song = new Audio("correct.mp3");
                         song.play();
