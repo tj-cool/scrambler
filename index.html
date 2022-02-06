@@ -83,7 +83,7 @@
                         cc.fillText("correct",10,10);
                         var song = new Audio("correct.mp3");
                         song.play();
-                        if(length == 7) {
+                        if(realword.length >= 7) {
                             var color;
                             setInterval(() => {
                                color = "#" + random(100000,999999);
