@@ -60,7 +60,7 @@
             let wordlist = ["break","clean","clash","watch","punch","water","computer","flashed","grumpy","weird","lighten","fruit","drink","group","stink","world","about","cats","dogs","trucks","monkey",
             "jumble","boat","bugs","bounce","wrote","market","push","spear","orange","block","tired","run","double","wars","mile","pencil","dough","number","cube","popsicle"];
 
-            var realword = new String(wordlist[random(0,39)]);
+            var realword = new String(wordlist[random(0,wordlist.length)]);
             var scrambledText = scramble(realword);
             
             document.getElementById("text").innerHTML = "unscramble the word: " + scrambledText;
