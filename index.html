@@ -35,6 +35,8 @@
             <p>this is case sensitive, so for all you Iphone users, start with a lowercase letter.</p>
         </element>
         <script>
+            var c = document.getElementById("textcanvas");
+            var cc = c.getContext('2d');
             var length;
             function random(min,max) {
                 return Math.floor(Math.random() * (max - min) + min);
@@ -81,27 +83,24 @@
 
             function confirm() {
                 var answer = document.getElementById("input").value;
+                cc.clearRect(0,0,c.width,c.height);
                     if(answer == realword) {
-                    
+                        cc.fillText("correct",10,10);
                         var song = new Audio("correct.mp3");
                         song.play();
                         song.onended = function() {
-                            alert("correct!");
                             document.location.reload(true);
                         };
                         } else {
-                    alert("yes!");
                     var fail = new Audio("incorrect.mp3");
+                    cc.fillText("incorrect",10,10);
                     fail.play();
-                    alert("just kidding!");
                     fail.onended = function() {     
                     document.location.reload(true);
                     }
                     
                 }
             }
-            var c = document.getElementById("textcanvas");
-            var cc = c.getContext('2d');
             cc.beginPath();
             cc.font = 10 + 'px ' + "Verdana";
             cc.fillStyle = "#FF2001";
