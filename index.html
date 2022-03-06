@@ -54,7 +54,11 @@
                     scrambled += char;
                     word = word.removeAt(index);
                 }
-                return scrambled;
+                if (scrambled == word) {
+                    return scramble(word)
+                } else {
+                    return scrambled;
+                }
             }
     
             let wordlist = ["break","clean","clash","watch","punch","water","computer","flashed","grumpy","weird","lighten","fruit","drink","group","stink","world","about","cats","dogs","trucks","monkey",
